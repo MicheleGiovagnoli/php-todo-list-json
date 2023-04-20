@@ -3,7 +3,20 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            message: 'Hello Vue!'
+            jsList: [],
+            item: ''
         }
+    },
+    methods: {
+        readList() {
+            axios.get('server.php')
+                .then(response => {
+                    this.jsList = response.data;
+                })
+        }
+
+    },
+    mounted() {
+        this.readList();
     }
 }).mount('#app')

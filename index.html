@@ -11,8 +11,10 @@
 </head>
 
 <body>
-    <div class="web-app">
-        <div id="app">{{ message }}</div>
+    <div id="app">
+        <div v-for=" list in jsList">
+            {{ list }}
+        </div>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.6/axios.min.js"
