@@ -12,8 +12,18 @@
 
 <body>
     <div id="app">
-        <div v-for=" list in jsList">
-            {{ list }}
+
+        <div class="container">
+            <div class="title">
+                <h1>PHP ToDo List JSON</h1>
+            </div>
+            <ul class="list-group margin">
+                <li class="list-group-item" v-for="list in jsList">
+                    {{list}}
+                </li>
+            </ul>
+            <input v-model="item" type="text" class="form-control" />
+            <button class="btn btn-outline-primary" @click="addTask">Aggiungi una faccenda</button>
         </div>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -22,5 +32,30 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src='main.js'></script>
 </body>
+<style>
+    body {
+        background-color: #313338;
+    }
+
+    .title {
+        color: white;
+    }
+
+    .container {
+        width: 60%;
+        margin: 100px auto;
+        padding: 50px;
+        border-radius: 20px;
+        background-color: #212529;
+    }
+
+    .container input {
+        margin-bottom: 20px;
+    }
+
+    .container ul {
+        margin: 20px 0px;
+    }
+</style>
 
 </html>
