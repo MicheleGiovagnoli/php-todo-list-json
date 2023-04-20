@@ -6,7 +6,7 @@
         'affitto',
     ];
     if (isset($_POST['task'])){
-        $list[] .= $_POST['task'];
+        $list[] = $_POST['task'];
     }
 
     header('Content-Type: application/json');  // converto i dati che voglio spedire
