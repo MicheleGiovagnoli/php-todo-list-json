@@ -22,7 +22,7 @@
             </div>
             <ul class="list-group margin">
                 <li class="list-group-item d-flex" v-for="(list, index) in jsList">
-                    <span :class="{'text-decoration-line-through' : list.stat}"
+                    <span class="text" :class="{'text-decoration-line-through' : list.stat}"
                         @click="doneTask(index)">{{list.name}}</span>
                     <div class="remove" @click="removeTask(index)">
                         <i class="fa-solid fa-trash"></i>
@@ -87,6 +87,10 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+
+    .text {
+        cursor: pointer;
     }
 </style>
 

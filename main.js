@@ -40,11 +40,16 @@ createApp({
             });
         },
         doneTask(position) {
-            if (this.jsList[position].stat == true) {
-                this.jsList[position].stat = false
-            } else {
-                this.jsList[position].stat = true
+            const data = {
+                select: position
             }
+            axios.post('server.php', data,     //scelgo il file e cosa inviare
+                {
+                    headers: { 'Content-Type': 'multipart/form-data' }
+                }
+            ).then(response => {
+                this.jsList = response.data;
+            });
         }
     },
     mounted() {

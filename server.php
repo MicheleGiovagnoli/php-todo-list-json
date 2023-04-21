@@ -28,6 +28,13 @@
         file_put_contents('data.json', $stringList);
     }
 
+    if (isset($_POST['select'])){
+        $list[$_POST['select']]['stat'] = !$list[$_POST['select']]['stat'];
+
+        $stringList = json_encode($list);
+        file_put_contents('data.json', $stringList);
+    }
+
     header('Content-Type: application/json');  // converto i dati che voglio spedire
     echo json_encode($list);                   // in una stringa di testo contenuta 
                                                // all'intero di un file .json
