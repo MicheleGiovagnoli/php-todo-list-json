@@ -14,11 +14,10 @@ createApp({
                     this.jsList = response.data; //Metto la risposta alla chiamata all'interno di un'array
                 })                               //facendone una 'copia' che utilizzero con vue.js in index.html
         },
-        addTask() {
-            const data = {                       //Creo un'oggetto che verra inviato con una post al server
-                task: this.item                  //
+        addTask() {                                 //Creo un'oggetto che verra inviato con una post al server
+            const data = {
+                task: this.item
             };
-
             axios.post('server.php', data,       //scelgo il file e cosa inviare
                 {
                     headers: { 'Content-Type': 'multipart/form-data' }
@@ -26,6 +25,15 @@ createApp({
             ).then(response => {
                 this.jsList = response.data;
                 this.item = "";
+            });
+        },
+        removeTask(position) {
+            axios.post('server.php',        //scelgo il file e cosa inviare
+                {
+                    headers: { 'Content-Type': 'multipart/form-data' }
+                }
+            ).then(response => {
+                this.jsList[position] = [];
             });
         },
     },

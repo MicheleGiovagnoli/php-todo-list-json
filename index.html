@@ -18,8 +18,11 @@
                 <h1>PHP ToDo List JSON</h1>
             </div>
             <ul class="list-group margin">
-                <li class="list-group-item" v-for="list in jsList">
-                    {{list}}
+                <li class="list-group-item d-flex" v-for="(list, key) in jsList">
+                    <span :class="{'text-decoration-line-through' : list.stat}">{{list.name}}</span>
+                    <div class="remove" @click="removeTask(key)">
+
+                    </div>
                 </li>
             </ul>
             <input v-model="item" type="text" class="form-control" />
@@ -55,6 +58,26 @@
 
     .container ul {
         margin: 20px 0px;
+    }
+
+    .line {
+        text-decoration: line-through;
+    }
+
+    .text-decoration-line-through {
+        text-decoration: line-through;
+    }
+
+    .remove {
+        width: 20px;
+        height: 20px;
+        background-color: orange;
+    }
+
+    .d-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 </style>
 
