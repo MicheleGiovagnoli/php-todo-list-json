@@ -21,13 +21,13 @@
         $stringList = json_encode($list);
         file_put_contents('data.json', $stringList);
     }
-    //
+    //Elimino con array_splice la task nella posizione che ho passato 
     if (isset($_POST['positionTask'])){
         array_splice($list, $_POST['positionTask'], 1);
         $stringList = json_encode($list);
         file_put_contents('data.json', $stringList);
     }
-
+    //cambio il valore 
     if (isset($_POST['select'])){
         $list[$_POST['select']]['stat'] = !$list[$_POST['select']]['stat'];
 
