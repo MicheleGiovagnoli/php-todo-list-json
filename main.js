@@ -3,7 +3,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            jsList: [],     //array 
+            jsList: [],
             item: "",
         }
     },
@@ -28,14 +28,24 @@ createApp({
             });
         },
         removeTask(position) {
-            axios.post('server.php',        //scelgo il file e cosa inviare
+            const data = {
+                positionTask: position
+            };
+            axios.post('server.php', data,       //scelgo il file e cosa inviare
                 {
                     headers: { 'Content-Type': 'multipart/form-data' }
                 }
             ).then(response => {
-                this.jsList[position] = [];
+                this.jsList = response.data;
             });
         },
+        doneTask(position) {
+            if (this.jsList[position].stat == true) {
+                this.jsList[position].stat = false
+            } else {
+                this.jsList[position].stat = true
+            }
+        }
     },
     mounted() {
         this.readList();

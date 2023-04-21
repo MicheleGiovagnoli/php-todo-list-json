@@ -1,14 +1,1 @@
-[
-    {
-        "name": "bollette",
-        "stat": true
-    },
-    {
-        "name": "affitto",
-        "stat": false
-    },
-    {
-        "name": "auto",
-        "stat": false
-    }
-]
+[{"name":"bollette","stat":true},{"name":"affitto","stat":false},{"name":"mik","done":false}]

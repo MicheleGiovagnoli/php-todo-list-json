@@ -21,6 +21,12 @@
         $stringList = json_encode($list);
         file_put_contents('data.json', $stringList);
     }
+    //
+    if (isset($_POST['positionTask'])){
+        array_splice($list, $_POST['positionTask'], 1);
+        $stringList = json_encode($list);
+        file_put_contents('data.json', $stringList);
+    }
 
     header('Content-Type: application/json');  // converto i dati che voglio spedire
     echo json_encode($list);                   // in una stringa di testo contenuta 
